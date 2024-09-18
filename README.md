@@ -375,8 +375,200 @@ echo $dosen3->aksesFitur(); // Output: Selamat Hallo Yusuf
 
 ![image](https://github.com/user-attachments/assets/67482c19-23c2-493c-a1fa-67d66fb81ba4)
 
+<h2>3. Jobseheet 3 .</h2>
+<h3>> A. Penjelasan Dengan intruksi kerja</h3>
+<b>1. Inheritance. </b>
+<p>
+    
+- Atribut protected $nama: Atribut ini memiliki visibilitas protected, yang berarti hanya dapat diakses di dalam kelas Person dan kelas turunan yang mewarisinya.
+- Konstruktor __construct($nama): Konstruktor ini digunakan untuk menginisialisasi atribut nama ketika objek dari kelas Person dibuat.
+- Metode getNama(): Metode ini mengembalikan nilai dari atribut nama, memungkinkan akses ke nama yang disimpan di dalam objek.
+- Student extends Person: Kelas Student mewarisi dari kelas Person, artinya kelas Student akan memiliki atribut dan metode dari kelas Person.
+- Atribut private $studentID: Atribut ini hanya bisa diakses di dalam kelas Student. Ini menambah atribut khusus yang tidak ada di kelas Person.
+- Konstruktor __construct($nama, $studentID): Konstruktor ini memanggil konstruktor dari kelas induk Person menggunakan parent::__construct($nama), kemudian menginisialisasi atribut studentID.
+- Metode getStudentID(): Metode ini mengembalikan nilai dari atribut studentID, memungkinkan akses ke ID mahasiswa yang disimpan di dalam objek.
 
+</p>
 
+``` sh
+<?php
+class Person {
+    // Atribut protected agar bisa diakses oleh kelas turunan
+    protected $nama;
+
+    // Konstruktor untuk menginisialisasi atribut
+    public function __construct($nama) {
+        $this->nama = $nama;
+    }
+
+    // Metode getter untuk atribut nama
+    public function getNama() {
+        return $this->nama;
+    }
+}
+
+class Student extends Person {
+    // Atribut tambahan khusus untuk kelas Student
+    private $studentID;
+
+    // Konstruktor untuk menginisialisasi atribut dari kelas dan atribut tambahan
+    public function __construct($nama, $studentID) {
+        // Panggil konstruktor kelas Person
+        parent::__construct($nama);
+        $this->studentID = $studentID;
+    }
+
+    // Metode getter untuk atribut studentID
+    public function getStudentID() {
+        return $this->studentID;
+    }
+}
+// Membuat objek Student
+$student1 = new Student("Yusuf", "12345");
+
+// Mengakses metode dari kelas Person melalui objek Student
+echo $student1->getNama(); // Output: John Doe
+
+// Mengakses metode dari kelas Student
+echo $student1->getStudentID(); // Output: 12345
+?>
+
+```
+
+<b>2. Encapsulation</b>
+<p>
+    
+- Instansiasi Student: Membuat objek Student baru dengan nama "Yusuf" dan ID mahasiswa "12345".
+- Penggunaan Getter: Memanggil metode getNama() dan getStudentID() untuk mendapatkan nilai dari atribut nama dan studentID.
+- Penggunaan Setter: Mengubah nilai atribut nama dan studentID menggunakan metode setNama() dan setStudentID().
+- Menampilkan Data: Setelah nilai diubah, metode getter dipanggil lagi untuk menampilkan nilai terbaru.
+  
+</p>
+
+``` sh
+<?php
+class Student {
+    // Atribut private
+    private $nama;
+    private $studentID;
+
+    // Konstruktor untuk menginisialisasi atribut
+    public function __construct($nama, $studentID) {
+        $this->nama = $nama;
+        $this->studentID = $studentID;
+    }
+
+    // Metode getter untuk atribut nama
+    public function getNama() {
+        return $this->nama;
+    }
+
+    // Metode setter untuk atribut nama
+    public function setNama($nama) {
+        $this->nama = $nama;
+    }
+
+    // Metode getter untuk atribut studentID
+    public function getStudentID() {
+        return $this->studentID;
+    }
+
+    // Metode setter untuk atribut studentID
+    public function setStudentID($studentID) {
+        $this->studentID = $studentID;
+    }
+}
+
+// Contoh penggunaan kelas Student
+$student = new Student("Yusuf", "12345");
+echo $student->getNama(); // Output: John Doe
+echo $student->getStudentID(); // Output: 12345
+
+$student->setNama("Yucup");
+$student->setStudentID("67890");
+echo $student->getNama(); // Output: Jane Doe
+echo $student->getStudentID(); // Output: 67890
+?>
+
+```
+
+<b>3. Polimerishem </b>
+<p>
+    
+- Instansiasi Objek: Membuat objek Student dan Teacher dengan nilai-nilai tertentu.
+- Memanggil getName(): Menggunakan metode getName() yang di-override pada objek Student dan Teacher untuk menampilkan format yang telah ditentukan.
+
+</p>
+
+``` sh
+<?php
+
+// Kelas Person dasar
+class Person {
+    protected $name;
+
+    public function __construct($name) {
+        $this->name = $name;
+    }
+
+    // Metode getName default di kelas Person
+    public function getName() {
+        return $this->name;
+    }
+}
+
+// Kelas Student yang mewarisi dari Person
+class Student extends Person {
+    protected $studentID;
+
+    public function __construct($name, $studentID) {
+        parent::__construct($name); // Memanggil konstruktor dari kelas Person
+        $this->studentID = $studentID;
+    }
+
+    // Override metode getName untuk menampilkan format berbeda
+    public function getName() {
+        return "Student: " . $this->name . " (ID: " . $this->studentID . ")";
+    }
+}
+
+// Kelas Teacher yang mewarisi dari Person
+class Teacher extends Person {
+    protected $teacherID;
+
+    public function __construct($name, $teacherID) {
+        parent::__construct($name); // Memanggil konstruktor dari kelas Person
+        $this->teacherID = $teacherID;
+    }
+
+    // Override metode getName untuk menampilkan format berbeda
+    public function getName() {
+        return "Teacher: " . $this->name . " (ID: " . $this->teacherID . ")";
+    }
+}
+
+// Demonstrasi Polymorphism
+$student = new Student("John ", "S12345");
+$teacher = new Teacher("Dr. Smith", "T98765");
+
+// Memanggil metode getName() yang sudah di-override
+echo $student->getName(); // Output: Student: John Doe (ID: S12345)
+echo "<br>";
+echo $teacher->getName(); // Output: Teacher: Dr. Smith (ID: T98765)
+
+?>
+
+```
+
+<b>4. Abstraktion. </b>
+<p>
+    
+- $onlineCourse: Membuat objek baru dari kelas OnlineCourse dengan nama kursus "PHP" dan platform "Yusuf".
+- $offlineCourse: Membuat objek baru dari kelas OfflineCourse dengan nama kursus "Advanced PHP" dan lokasi "Dr Muhammad".
+Pemanggilan Metode getCourseDetails:
+
+echo $onlineCourse->getCourseDetails() . "<br>";: Memanggil metode getCourseDetails dari objek OnlineCourse dan menampilkan hasilnya di browser.
+echo $offlineCourse->getCourseDetails();: Memanggil metode getCourseDetails dari objek OfflineCourse dan menampilkan hasilnya di browser.</p>
 
 
 
