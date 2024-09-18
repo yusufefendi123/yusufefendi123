@@ -62,10 +62,34 @@ $mahasiswa1 = new Mahasiswa("Yusuf Efendi", "230102096", "Teknik Informatika");
     echo $mahasiswa1->tampilkanData();
 ```
 
-<h2>B. Hasil tampilan dengan Intruksi Kerja.</h2>
+<h2>Hasil tampilan dengan Intruksi Kerja.</h2>
 
 ![image](https://github.com/user-attachments/assets/bc91fd87-1a72-41f8-a009-6006c4fe1de2)
 
 <h3>> B. Tugas 1</h3>
-<p>o </p>
+<p>o Menerapkan seperti di intruksi kerja tetapi dengan kelas dosen dan atrbitunya adalah Nama, NIP, matakuliah.</p>
+
+``` sh
+// Definisi Class
+class Dosen{
+    // Atribut atau Properties
+    public $nama;
+    public $nip;
+    public $matakuliah;
+    // Metode atau Function
+    public function tampilkanDosen(){
+        return "Nama Dossen: $this->nama, NIP: $this->nip, matakuliah: $this->matakuliah.";
+    }
+    // Constructor
+    public function __construct($nama, $nip, $matakuliah){
+        $this->nama = $nama;
+        $this->nip = $nip;
+        $this->matakuliah = $matakuliah;
+    }
+}
+// Instansiasi Objek
+$Dosen1 = new Dosen ("Yusuf Efendi", "230102096", "Web");
+echo $Dosen1->tampilkanDosen();
+```
+
 
