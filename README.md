@@ -62,3 +62,10 @@ $mahasiswa1 = new Mahasiswa("Yusuf Efendi", "230102096", "Teknik Informatika");
     echo $mahasiswa1->tampilkanData();
 ```
 
+<h2>B. Hasil tampilan dengan Intruksi Kerja.</h2>
+
+![image](https://github.com/user-attachments/assets/bc91fd87-1a72-41f8-a009-6006c4fe1de2)
+
+<h3>> B. Tugas 1</h3>
+<p>o </p>
+
