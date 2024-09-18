@@ -638,6 +638,167 @@ echo $offlineCourse->getCourseDetails();
 
 ![image](https://github.com/user-attachments/assets/e2a58d91-9bbe-467e-a2fe-3b0454e06bda)
 
+<h3>> B. Penjelasan Tugas 3. </h3>
+
+<b>- Intruksi. </b>
+<p>
+
+Buat proyek PHP dengan studi kasus sebagai berikut: 
+1. Implementasikan kelas Person sebagai induk dari Dosen dan Mahasiswa.
+2. Gunakan konsep Inheritance untuk membuat hierarki kelas yang memungkinkan 
+Dosen dan Mahasiswa memiliki atribut dan metode yang sesuai dengan perannya.
+3. Terapkan Polymorphism dengan membuat metode getRole() di kelas Person dan 
+override metode ini di kelas Dosen dan Mahasiswa untuk menampilkan peran yang 
+berbeda.
+4. Gunakan Encapsulation untuk melindungi atribut nidn di kelas Dosen dan nim di 
+kelas Mahasiswa.
+5. Buat kelas abstrak Jurnal dan implementasikan konsep Abstraction dengan 
+membuat kelas turunan JurnalDosen dan JurnalMahasiswa yang masing-masing 
+memiliki cara tersendiri untuk mengelola pengajuan jurnal.
+Dokumentasikan proyek ini dalam bentuk laporan yang diunggah ke GitHub, termasuk 
+penjelasan tentang penerapan masing-masing konsep OOP</p>
+
+<b>- Penjelasan. </b>
+<p>
+
+menerapkan beberapa konsep dasar OOP, termasuk Abstraksi, Pewarisan, Polimorfisme, dan Enkapsulasi.
+
+Abstraksi (Abstraction):
+
+Menggunakan kelas abstrak Course dan Person untuk mendefinisikan kerangka dasar yang harus diikuti oleh kelas turunannya.
+Menyediakan metode abstrak (getCourseDetails(), getRole()) yang harus diimplementasikan oleh kelas turunan, memastikan konsistensi dalam perilaku objek.
+Pewarisan (Inheritance):
+
+Dosen dan Mahasiswa mewarisi dari kelas Person, memungkinkan mereka untuk menggunakan atribut dan metode yang didefinisikan di kelas induk.
+JurnalDosen dan JurnalMahasiswa mewarisi dari kelas abstrak Jurnal, memungkinkan mereka untuk mengimplementasikan metode yang spesifik untuk masing-masing jenis jurnal.
+Polimorfisme (Polymorphism):
+
+Metode getRole() di kelas Person di-override oleh kelas Dosen dan Mahasiswa, memungkinkan metode yang sama untuk berperilaku berbeda tergantung pada objek yang memanggilnya.
+Metode manageSubmission() di kelas Jurnal diimplementasikan berbeda oleh JurnalDosen dan JurnalMahasiswa, memungkinkan perilaku yang berbeda untuk jenis jurnal yang berbeda.
+Enkapsulasi (Encapsulation):
+
+Atribut nama, nidn, dan nim dilindungi dengan visibilitas protected atau private, mencegah akses langsung dari luar kelas.
+Akses dan modifikasi atribut dilakukan melalui metode getter dan setter, memastikan kontrol penuh atas bagaimana data diakses atau diubah.
+
+</p>
+
+``` sh
+<?php
+// Kelas induk Person
+abstract class Person {
+
+    protected $nama;
+    // Metode abstrak untuk role
+    abstract public function getRole();
+
+    public function __construct($nama) {
+        $this->nama = $nama;
+    }
+
+    // Metode getter untuk nama
+    public function getNama() {
+        return $this->nama;
+    }
+}
+
+// Kelas Dosen yang mewarisi Person
+class Dosen extends Person {
+    private $nidn;
+
+    public function __construct($nama, $nidn) {
+        parent::__construct($nama);
+        $this->nidn = $nidn;
+    }
+
+    // Getter untuk nidn
+    public function getNidn() {
+        return $this->nidn;
+    }
+
+    // Setter untuk nidn
+    public function setNidn($nidn) {
+        $this->nidn = $nidn;
+    }
+
+    // Override metode getRole
+    public function getRole() {
+        return "Dosen";
+    }
+}
+
+// Kelas Mahasiswa yang mewarisi Person
+class Mahasiswa extends Person {
+    private $nim;
+
+    public function __construct($nama, $nim) {
+        parent::__construct($nama);
+        $this->nim = $nim;
+    }
+
+    // Getter untuk nim
+    public function getNim() {
+        return $this->nim;
+    }
+
+    // Setter untuk nim
+    public function setNim($nim) {
+        $this->nim = $nim;
+    }
+
+    // Override metode getRole
+    public function getRole() {
+        return "Mahasiswa";
+    }
+}
+
+// Kelas abstrak Jurnal
+abstract class Jurnal {
+    // Metode abstrak yang harus diimplementasikan oleh subclass
+    abstract public function manageSubmission();
+}
+
+// Kelas JurnalDosen yang mengimplementasikan Jurnal
+class JurnalDosen extends Jurnal {
+    public function manageSubmission() {
+        return "Jurnal Dosen: Pengajuan jurnal oleh dosen diterima.";
+    }
+}
+
+// Kelas JurnalMahasiswa yang mengimplementasikan Jurnal
+class JurnalMahasiswa extends Jurnal {
+    public function manageSubmission() {
+        return "Jurnal Mahasiswa: Pengajuan jurnal oleh mahasiswa diterima.";
+    }
+}
+
+// Demonstrasi
+$dosen = new Dosen("Dr. Budi", "238897279");
+$mahasiswa = new Mahasiswa("Yusuf Efedi", "230102096");
+
+echo $dosen->getNama() . " adalah " . $dosen->getRole() . "<br>"; // Output: Dr. Budi adalah Dosen
+echo "NIDN: " . $dosen->getNidn() . "<br>"; // Output: NIDN: 123456
+
+echo $mahasiswa->getNama() . " adalah " . $mahasiswa->getRole() . "<br>"; // Output: Yusuf adalah Mahasiswa
+echo "NIM: " . $mahasiswa->getNim() . "<hr>"; // Output: NIM: 654321
+
+// Penggunaan Jurnal
+$jurnalDosen = new JurnalDosen();
+$jurnalMahasiswa = new JurnalMahasiswa();
+
+echo $jurnalDosen->manageSubmission() . "<br>"; // Output: Jurnal Dosen: Pengajuan jurnal oleh dosen diterima.
+echo $jurnalMahasiswa->manageSubmission();     // Output: Jurnal Mahasiswa: Pengajuan jurnal oleh mahasiswa diterima.
+?>
+
+```
+
+<h2>Hasil tampilan Tugas 3.</h2>
+
+![image](https://github.com/user-attachments/assets/8c56a35b-b425-4b66-8b96-804eac30ec3e)
+
+
+
+
+
 
 
 
