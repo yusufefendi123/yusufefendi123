@@ -427,10 +427,10 @@ class Student extends Person {
 $student1 = new Student("Yusuf", "12345");
 
 // Mengakses metode dari kelas Person melalui objek Student
-echo $student1->getNama(); // Output: John Doe
+echo $student1->getNama(); 
 
 // Mengakses metode dari kelas Student
-echo $student1->getStudentID(); // Output: 12345
+echo $student1->getStudentID(); 
 ?>
 
 ```
@@ -481,13 +481,13 @@ class Student {
 
 // Contoh penggunaan kelas Student
 $student = new Student("Yusuf", "12345");
-echo $student->getNama(); // Output: John Doe
-echo $student->getStudentID(); // Output: 12345
+echo $student->getNama(); 
+echo $student->getStudentID(); 
 
 $student->setNama("Yucup");
 $student->setStudentID("67890");
-echo $student->getNama(); // Output: Jane Doe
-echo $student->getStudentID(); // Output: 67890
+echo $student->getNama();
+echo $student->getStudentID(); 
 ?>
 
 ```
@@ -552,9 +552,9 @@ $student = new Student("John ", "S12345");
 $teacher = new Teacher("Dr. Smith", "T98765");
 
 // Memanggil metode getName() yang sudah di-override
-echo $student->getName(); // Output: Student: John Doe (ID: S12345)
+echo $student->getName(); 
 echo "<br>";
-echo $teacher->getName(); // Output: Teacher: Dr. Smith (ID: T98765)
+echo $teacher->getName(); 
 
 ?>
 
@@ -565,10 +565,82 @@ echo $teacher->getName(); // Output: Teacher: Dr. Smith (ID: T98765)
     
 - $onlineCourse: Membuat objek baru dari kelas OnlineCourse dengan nama kursus "PHP" dan platform "Yusuf".
 - $offlineCourse: Membuat objek baru dari kelas OfflineCourse dengan nama kursus "Advanced PHP" dan lokasi "Dr Muhammad".
-Pemanggilan Metode getCourseDetails:
+- echo $onlineCourse->getCourseDetails() . "<br>";: Memanggil metode getCourseDetails dari objek OnlineCourse dan menampilkan hasilnya di browser.
+- echo $offlineCourse->getCourseDetails();: Memanggil metode getCourseDetails dari objek OfflineCourse dan menampilkan hasilnya di browser.
 
-echo $onlineCourse->getCourseDetails() . "<br>";: Memanggil metode getCourseDetails dari objek OnlineCourse dan menampilkan hasilnya di browser.
-echo $offlineCourse->getCourseDetails();: Memanggil metode getCourseDetails dari objek OfflineCourse dan menampilkan hasilnya di browser.</p>
+</p>
+
+``` sh
+<?php
+// Kelas abstrak Course
+abstract class Course {
+    // Metode abstrak yang harus diimplementasikan oleh subclass
+    abstract public function getCourseDetails();
+}
+
+// Kelas OnlineCourse yang mengimplementasikan getCourseDetails
+class OnlineCourse extends Course {
+    private $courseName;
+    private $platform;
+
+    public function __construct($courseName, $platform) {
+        $this->courseName = $courseName;
+        $this->platform = $platform;
+    }
+
+    // Implementasi metode abstrak getCourseDetails
+    public function getCourseDetails() {
+        return "Hasil Online Course: " . $this->courseName . " Mode ON " . $this->platform;
+    }
+}
+
+// Kelas OfflineCourse yang mengimplementasikan getCourseDetails
+class OfflineCourse extends Course {
+    private $courseName;
+    private $location;
+
+    public function __construct($courseName, $location) {
+        $this->courseName = $courseName;
+        $this->location = $location;
+    }
+
+    // Implementasi metode abstrak getCourseDetails
+    public function getCourseDetails() {
+        return "Mode Offline Course: " . $this->courseName . " Mode OFF " . $this->location;
+    }
+}
+
+// Instansiasi objek dari kelas OnlineCourse dan OfflineCourse
+$onlineCourse = new OnlineCourse("PHP", "Yusuf");
+$offlineCourse = new OfflineCourse("Advanced PHP", "Dr muhammad");
+
+// Menampilkan detail kursus
+echo $onlineCourse->getCourseDetails() . "<br>"; 
+echo $offlineCourse->getCourseDetails();         
+?>
+
+```
+
+<h2>Hasil tampilan Dengan intruksi kerja.</h2>
+<b>1. inheritance. </b>
+
+![image](https://github.com/user-attachments/assets/f2353e6e-13a2-4e46-aa97-850afa451c01)
+
+<b>2. Encapsulation. </b>
+
+![image](https://github.com/user-attachments/assets/f30bc468-131c-41f7-b8c7-6bbe71c28fad)
+
+<b>3. Polimerishem. </b>
+
+![image](https://github.com/user-attachments/assets/beab5682-edc1-4355-bf99-5560257dc042)
+
+<b>4. Abstarktion. </b>
+
+![image](https://github.com/user-attachments/assets/e2a58d91-9bbe-467e-a2fe-3b0454e06bda)
+
+
+
+
 
 
 
