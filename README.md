@@ -97,7 +97,7 @@ echo $Dosen1->tampilkanDosen();
 ![image](https://github.com/user-attachments/assets/56e107af-db93-47f5-a3c3-28a0462dbaf0)
 
 <h2>2. Jobseheet 2 .</h2>
-<h3>> A. Dengan Intruksi Kerja</h3>
+<h3>> A. Penjelasan Tugas 2</h3>
 <b>1. Class dan object. </b>
 <p>
     
@@ -370,6 +370,11 @@ echo "<br>";
 echo $dosen3->aksesFitur(); // Output: Selamat Hallo Yusuf
 
 ```
+
+<h2>Hasil tampilan Tugas 2.</h2>
+
+![image](https://github.com/user-attachments/assets/67482c19-23c2-493c-a1fa-67d66fb81ba4)
+
 
 
 
