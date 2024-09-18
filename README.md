@@ -1,14 +1,14 @@
 <h1><i>Tugas 1 Prak WEB 2 ( Penjelasan dan keterangan )</i></h1>
 <h2>1. Jobseheet 1 .</h2>
 <h3>> A. Dengan Intruksi Kerja</h3>
-<p>o Kelas Mahasiswa merupakan blueprint atau cetak biru untuk objek mahasiswa. Kelas ini mendefinisikan atribut dan metode yang dimiliki oleh setiap objek mahasiswa yang dibuat dari kelas ini.</p>
+<p>- Kelas Mahasiswa merupakan blueprint atau cetak biru untuk objek mahasiswa. Kelas ini mendefinisikan atribut dan metode yang dimiliki oleh setiap objek mahasiswa yang dibuat dari kelas ini.</p>
 
 ``` sh
     class Mahasiswa{
      ...
     }
 ```
-<p>o Atribut atau properties dalam kelas Mahasiswa adalah komponen penting yang menyimpan informasi tentang objek mahasiswa, seperti nama, NIM, dan jurusan. Penggunaan modifier akses public memungkinkan atribut-atribut ini diakses dan dimodifikasi dari luar kelas,</p>
+<p>- Atribut atau properties dalam kelas Mahasiswa adalah komponen penting yang menyimpan informasi tentang objek mahasiswa, seperti nama, NIM, dan jurusan. Penggunaan modifier akses public memungkinkan atribut-atribut ini diakses dan dimodifikasi dari luar kelas,</p>
 
 ```sh
         public $nama;
@@ -16,7 +16,7 @@
         public $jurusan;
 ```
 
-<p>o Metode tampilkanData() dalam kelas Mahasiswa berfungsi untuk mengembalikan informasi atribut nama, nim, dan jurusan dalam format string yang siap ditampilkan di browser dengan pemformatan HTML.</p>
+<p>- Metode tampilkanData() dalam kelas Mahasiswa berfungsi untuk mengembalikan informasi atribut nama, nim, dan jurusan dalam format string yang siap ditampilkan di browser dengan pemformatan HTML.</p>
 
 ``` sh
   public function tampilkanData(){
@@ -24,7 +24,7 @@
         }
 ```
 
-<p>o Metode __construct dalam kelas Mahasiswa berfungsi untuk menginisialisasi objek dengan nilai awal yang diberikan saat objek dibuat.</p>
+<p>- Metode __construct dalam kelas Mahasiswa berfungsi untuk menginisialisasi objek dengan nilai awal yang diberikan saat objek dibuat.</p>
 
 ``` sh
     public function __construct($nama, $nim, $jurusan){
@@ -34,7 +34,7 @@
         }
 ```
 
-<p>o Kedua metode ini, updateJurusan dan setNim, adalah metode setter yang digunakan untuk mengubah nilai dari atribut jurusan dan nim dalam kelas Mahasiswa, dengan memanggil prameter di setiap metode.</p>
+<p>- Kedua metode ini, updateJurusan dan setNim, adalah metode setter yang digunakan untuk mengubah nilai dari atribut jurusan dan nim dalam kelas Mahasiswa, dengan memanggil prameter di setiap metode.</p>
 
 ``` sh
  public function updateJurusan($jurusan){
@@ -47,7 +47,7 @@
     }
 ```
 
-<p>Kode ini adalah untuk proses pembuatan dan manipulasi objek dari kelas Mahasiswa. Inisialisasi objek dilakukan dengan konstruktor, kemudian metode tampilkanData, updateJurusan, dan setNim digunakan untuk menampilkan dan memperbarui data objek. Hasil output memperlihatkan perubahan yang dilakukan pada objek mahasiswa1.</p>
+<p>- Kode ini adalah untuk proses pembuatan dan manipulasi objek dari kelas Mahasiswa. Inisialisasi objek dilakukan dengan konstruktor, kemudian metode tampilkanData, updateJurusan, dan setNim digunakan untuk menampilkan dan memperbarui data objek. Hasil output memperlihatkan perubahan yang dilakukan pada objek mahasiswa1.</p>
 
 ``` sh
 $mahasiswa1 = new Mahasiswa("Yusuf Efendi", "230102096", "Teknik Informatika");
@@ -67,7 +67,7 @@ $mahasiswa1 = new Mahasiswa("Yusuf Efendi", "230102096", "Teknik Informatika");
 ![image](https://github.com/user-attachments/assets/bc91fd87-1a72-41f8-a009-6006c4fe1de2)
 
 <h3>> B. Tugas 1</h3>
-<p>o Menerapkan seperti di intruksi kerja tetapi dengan kelas dosen dan atrbitunya adalah Nama, NIP, matakuliah.</p>
+<p>- Menerapkan seperti di intruksi kerja tetapi dengan kelas dosen dan atrbitunya adalah Nama, NIP, matakuliah.</p>
 
 ``` sh
 // Definisi Class
@@ -91,5 +91,14 @@ class Dosen{
 $Dosen1 = new Dosen ("Yusuf Efendi", "230102096", "Web");
 echo $Dosen1->tampilkanDosen();
 ```
+
+<h2>Hasil tampilan tugas 1</h2>
+
+![image](https://github.com/user-attachments/assets/56e107af-db93-47f5-a3c3-28a0462dbaf0)
+
+<h2>2. Jobseheet 2 .</h2>
+<h3>> A. Dengan Intruksi Kerja</h3>
+
+
 
 
